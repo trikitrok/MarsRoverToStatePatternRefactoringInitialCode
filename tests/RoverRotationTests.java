@@ -2,93 +2,76 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-
 public class RoverRotationTests {
     @Test
-    public void facingNorthRotateLeft()  {
+    public void facingNorthRotateLeft() {
         Rover rover = new Rover(0, 0, "N");
-        
+
         rover.receive("l");
-        
-        assertEquals(0, rover.getX());
-        assertEquals(0, rover.getY());
-        assertEquals("E", rover.getDirection());
+
+        assertEquals(new Rover(0, 0, "E"), rover);
     }
-    
+
     @Test
-    public void facingNorthRotateRight()  {
+    public void facingNorthRotateRight() {
         Rover rover = new Rover(0, 0, "N");
-        
+
         rover.receive("r");
-        
-        assertEquals(0, rover.getX());
-        assertEquals(0, rover.getY());
-        assertEquals("W", rover.getDirection());
+
+        assertEquals(new Rover(0, 0, "W"), rover);
     }
-    
+
     @Test
-    public void facingSouthRotateLeft()  {
+    public void facingSouthRotateLeft() {
         Rover rover = new Rover(0, 0, "S");
-        
+
         rover.receive("l");
-        
-        assertEquals(0, rover.getX());
-        assertEquals(0, rover.getY());
-        assertEquals("W", rover.getDirection());
+
+        assertEquals(new Rover(0, 0, "W"), rover);
     }
-    
+
     @Test
-    public void facingSouthRotateRight()  {
+    public void facingSouthRotateRight() {
         Rover rover = new Rover(0, 0, "S");
-        
+
         rover.receive("r");
-        
-        assertEquals(0, rover.getX());
-        assertEquals(0, rover.getY());
-        assertEquals("E", rover.getDirection());
+
+        assertEquals(new Rover(0, 0, "E"), rover);
     }
-    
+
     @Test
-    public void facingWestRotateLeft()  {
+    public void facingWestRotateLeft() {
         Rover rover = new Rover(0, 0, "W");
-        
+
         rover.receive("l");
-        
-        assertEquals(0, rover.getX());
-        assertEquals(0, rover.getY());
-        assertEquals("N", rover.getDirection());
+
+        assertEquals(new Rover(0, 0, "N"), rover);
     }
-    
+
     @Test
-    public void facingWestRotateRight()  {
+    public void facingWestRotateRight() {
         Rover rover = new Rover(0, 0, "W");
-        
+
         rover.receive("r");
-        
-        assertEquals(0, rover.getX());
-        assertEquals(0, rover.getY());
-        assertEquals("S", rover.getDirection());
+
+        assertEquals(new Rover(0, 0, "S"), rover);
     }
-    
+
     @Test
-    public void facingEastRotateLeft()  {
+    public void facingEastRotateLeft() {
         Rover rover = new Rover(0, 0, "E");
-        
+
         rover.receive("l");
-        
-        assertEquals(0, rover.getX());
-        assertEquals(0, rover.getY());
-        assertEquals("S", rover.getDirection());
+
+        assertEquals(new Rover(0, 0, "S"), rover);
     }
-    
+
     @Test
-    public void facingEastRotateRight()  {
+    public void facingEastRotateRight() {
         Rover rover = new Rover(0, 0, "E");
-        
+
         rover.receive("r");
-        
-        assertEquals(0, rover.getX());
-        assertEquals(0, rover.getY());
-        assertEquals("N", rover.getDirection());
+
+        assertEquals(new Rover(0, 0, "N"), rover);
     }
 }

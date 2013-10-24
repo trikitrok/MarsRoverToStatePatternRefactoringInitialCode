@@ -9,9 +9,7 @@ public class RoverReceivingCommandsListTests {
         
         rover.receive("");
         
-        assertEquals(0, rover.getX());
-        assertEquals(0, rover.getY());
-        assertEquals("N", rover.getDirection());
+        assertEquals(new Rover(0, 0, "N"), rover);
     }
     
     @Test
@@ -20,11 +18,8 @@ public class RoverReceivingCommandsListTests {
         
         rover.receive("lf");
         
-        assertEquals(-1, rover.getX());
-        assertEquals(0, rover.getY());
-        assertEquals("E", rover.getDirection());
+        assertEquals(new Rover(-1, 0, "E"), rover);
     }
-    
     
     @Test
     public void manyCommands() {
@@ -32,8 +27,6 @@ public class RoverReceivingCommandsListTests {
         
         rover.receive("ffrbbrfflff");
         
-        assertEquals(0, rover.getX());
-        assertEquals(0, rover.getY());
-        assertEquals("W", rover.getDirection());
+        assertEquals(new Rover(0, 0, "W"), rover);
     }
 }
