@@ -1,10 +1,9 @@
-
 public class Rover {
 
     private String direction;
     private int y;
     private int x;
-    
+
     public Rover(int x, int y, String direction) {
         this.direction = direction;
         this.y = y;
@@ -24,17 +23,17 @@ public class Rover {
     }
 
     public void receive(String commandSequence) {
-        for(int i = 0; i<commandSequence.length(); ++i) {
-            String command = commandSequence.substring(i, i+1);    
+        for (int i = 0; i < commandSequence.length(); ++i) {
+            String command = commandSequence.substring(i, i + 1);
             receiveOneCommand(command);
         }
     }
 
     private void receiveOneCommand(String command) {
-        if(isRotation(command)) {
+        if (isRotation(command)) {
             rotate(command);
         } else {
-            displace(command);    
+            displace(command);
         }
     }
 
@@ -48,11 +47,11 @@ public class Rover {
     }
 
     private void applyDisplacement(int displacement) {
-        if(direction.equals("N")) {
+        if (direction.equals("N")) {
             y += displacement;
-        } else if(direction.equals("S")) {
+        } else if (direction.equals("S")) {
             y -= displacement;
-        } else if(direction.equals("W")) {
+        } else if (direction.equals("W")) {
             x += displacement;
         } else {
             x -= displacement;
@@ -61,35 +60,34 @@ public class Rover {
 
     private int computeDisplacement(String commandSequence) {
         int displacement = -1;
-        
-        if(commandSequence.equals("f")) {
+
+        if (commandSequence.equals("f")) {
             displacement = 1;
         }
         return displacement;
     }
 
     private void rotate(String commandSequence) {
-        if(direction.equals("N")) {
-            if(commandSequence.equals("l")) {
-               direction = "E";
-            }
-            else {
+        if (direction.equals("N")) {
+            if (commandSequence.equals("l")) {
+                direction = "E";
+            } else {
                 direction = "W";
             }
-        } else if(direction.equals("S")) {
-            if(commandSequence.equals("l")) {
+        } else if (direction.equals("S")) {
+            if (commandSequence.equals("l")) {
                 direction = "W";
             } else {
                 direction = "E";
             }
-        } else if(direction.equals("W")) {
-            if(commandSequence.equals("l")) {
+        } else if (direction.equals("W")) {
+            if (commandSequence.equals("l")) {
                 direction = "N";
             } else {
                 direction = "S";
             }
         } else {
-            if(commandSequence.equals("l")) {
+            if (commandSequence.equals("l")) {
                 direction = "S";
             } else {
                 direction = "N";
@@ -101,29 +99,28 @@ public class Rover {
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
-        
+
         if (obj == null)
             return false;
-        
+
         if (getClass() != obj.getClass())
             return false;
-        
+
         Rover other = (Rover) obj;
-        
+
         if (direction == null) {
             if (other.direction != null)
                 return false;
         } else if (!direction.equals(other.direction))
             return false;
-        
+
         if (x != other.x)
             return false;
-        
+
         if (y != other.y)
             return false;
-        
+
         return true;
     }
-    
-    
+
 }
