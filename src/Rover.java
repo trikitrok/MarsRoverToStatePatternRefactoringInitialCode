@@ -96,4 +96,34 @@ public class Rover {
             }
         }
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        
+        if (obj == null)
+            return false;
+        
+        if (getClass() != obj.getClass())
+            return false;
+        
+        Rover other = (Rover) obj;
+        
+        if (direction == null) {
+            if (other.direction != null)
+                return false;
+        } else if (!direction.equals(other.direction))
+            return false;
+        
+        if (x != other.x)
+            return false;
+        
+        if (y != other.y)
+            return false;
+        
+        return true;
+    }
+    
+    
 }
