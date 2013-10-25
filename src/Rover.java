@@ -37,12 +37,12 @@ public class Rover {
         }
     }
 
-    private boolean isRotation(String commandSequence) {
-        return commandSequence.equals("l") || commandSequence.equals("r");
+    private boolean isRotation(String command) {
+        return command.equals("l") || command.equals("r");
     }
 
-    private void displace(String commandSequence) {
-        int displacement = computeDisplacement(commandSequence);
+    private void displace(String command) {
+        int displacement = computeDisplacement(command);
         applyDisplacement(displacement);
     }
 
@@ -52,42 +52,42 @@ public class Rover {
         } else if (direction.equals("S")) {
             y -= displacement;
         } else if (direction.equals("W")) {
-            x += displacement;
-        } else {
             x -= displacement;
+        } else {
+            x += displacement;
         }
     }
 
-    private int computeDisplacement(String commandSequence) {
+    private int computeDisplacement(String command) {
         int displacement = -1;
 
-        if (commandSequence.equals("f")) {
+        if (command.equals("f")) {
             displacement = 1;
         }
         return displacement;
     }
 
-    private void rotate(String commandSequence) {
+    private void rotate(String command) {
         if (direction.equals("N")) {
-            if (commandSequence.equals("l")) {
+            if (command.equals("r")) {
                 direction = "E";
             } else {
                 direction = "W";
             }
         } else if (direction.equals("S")) {
-            if (commandSequence.equals("l")) {
+            if (command.equals("r")) {
                 direction = "W";
             } else {
                 direction = "E";
             }
         } else if (direction.equals("W")) {
-            if (commandSequence.equals("l")) {
+            if (command.equals("r")) {
                 direction = "N";
             } else {
                 direction = "S";
             }
         } else {
-            if (commandSequence.equals("l")) {
+            if (command.equals("r")) {
                 direction = "S";
             } else {
                 direction = "N";
@@ -122,5 +122,4 @@ public class Rover {
 
         return true;
     }
-
 }

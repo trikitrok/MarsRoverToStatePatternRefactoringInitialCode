@@ -45,7 +45,7 @@ public class RoverPositionTests {
 
         rover.receive("f");
 
-        assertEquals(new Rover(1, 0, "W"), rover);
+        assertEquals(new Rover(-1, 0, "W"), rover);
     }
 
     @Test
@@ -54,7 +54,7 @@ public class RoverPositionTests {
 
         rover.receive("b");
 
-        assertEquals(new Rover(-1, 0, "W"), rover);
+        assertEquals(new Rover(1, 0, "W"), rover);
     }
 
     @Test
@@ -63,7 +63,7 @@ public class RoverPositionTests {
 
         rover.receive("f");
 
-        assertEquals(new Rover(-1, 0, "E"), rover);
+        assertEquals(new Rover(1, 0, "E"), rover);
     }
 
     @Test
@@ -72,6 +72,6 @@ public class RoverPositionTests {
 
         rover.receive("b");
 
-        assertEquals(new Rover(1, 0, "E"), rover);
+        assertEquals(new Rover(-1, 0, "E"), rover);
     }
 }

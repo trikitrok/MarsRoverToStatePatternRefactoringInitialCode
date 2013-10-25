@@ -18,7 +18,7 @@ public class RoverReceivingCommandsListTests {
 
         rover.receive("lf");
 
-        assertEquals(new Rover(-1, 0, "E"), rover);
+        assertEquals(new Rover(-1, 0, "W"), rover);
     }
 
     @Test
@@ -27,6 +27,6 @@ public class RoverReceivingCommandsListTests {
 
         rover.receive("ffrbbrfflff");
 
-        assertEquals(new Rover(0, 0, "W"), rover);
+        assertEquals(new Rover(0, 0, "E"), rover);
     }
 }
